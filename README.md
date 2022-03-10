@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/martinkubecka/OhMyDos/blob/main/images/logo.png" alt="Logo">
+<img src="https://github.com/martinkubecka/OhMyDoS/blob/master/images/logo.png" alt="Logo">
 
 # :no_entry: OhMyDoS
 
