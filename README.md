@@ -87,6 +87,14 @@ $ python3 OhMyDoS.py check targets.txt
 ```
 
 ---
+## :clipboard: To-Do List
+
+  Task | Status
+  --|--
+  Reimplement random User Agent generation |  
+  
+  
+---
 ## :postbox: Resources
 
 - WordPress DoS: Rediscovering an Unpatched 0-Day ([blog post](https://labs.arcturus.net/post/WordPress-DoS.html))
@@ -96,5 +104,10 @@ $ python3 OhMyDoS.py check targets.txt
 ---
 ## :triangular_ruler: Testing Environment Set Up
 
-- How To Install WordPress with LAMP ([link](https://github.com/martinkubecka/OhMyDoS/blob/main/guides/Wordpress_LAMP.md))
-- WordPress in a Docker container ([link](https://github.com/martinkubecka/OhMyDoS/blob/main/guides/Wordpress_Docker.md))
+- How To Install WordPress with LAMP ([link](https://github.com/martinkubecka/OhMyDoS/blob/master/guides/Wordpress_LAMP.md))
+- WordPress in a Docker container ([link](https://github.com/martinkubecka/OhMyDoS/blob/master/guides/Wordpress_Docker.md))
+
+---
+## :warning: Disclaimer
+  
+  > This tool was developed solely for educational purposes only and the author of this tool is no way responsible for any misuse.
