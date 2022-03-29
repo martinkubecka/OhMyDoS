@@ -10,8 +10,8 @@
 ## :memo: Pre-requisites
 
 - Python3.X ([download](https://www.python.org/downloads/release/python-3102/))
-- library called `fake-useragent` ([project](https://pypi.org/project/fake-useragent/))
-  - `$ pip install fake-useragent`
+- library called `Random User Agents` ([source code](https://github.com/Luqman-Ud-Din/random_user_agent))
+  - `$ pip install random_user_agent`
 
 ---
 ## :zap: Usage
@@ -86,14 +86,6 @@ $ python3 OhMyDoS.py check http://example.com
 $ python3 OhMyDoS.py check targets.txt
 ```
 
----
-## :clipboard: To-Do List
-
-  Task | Status
-  --|--
-  Reimplement random User Agent generation |  
-  
-  
 ---
 ## :postbox: Resources
 

